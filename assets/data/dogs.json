@@ -1,0 +1,112 @@
+[
+  {
+    "id": "german_shepherd",
+    "name": "German Shepherd",
+    "origin": "Germany",
+    "temperament": "Intelligent, Loyal, Courageous, Confident",
+    "life_span": "9 - 13",
+    "weight": {"kg": "22 - 40"},
+    "image": "assets/dogs/german.jpg",
+    "food_recommendation": "German Shepherds require a high-protein, nutrient-rich diet with joint supplements for their active lifestyle, especially in warm climates."
+  },
+  {
+    "id": "labrador_retriever",
+    "name": "Labrador Retriever",
+    "origin": "Canada",
+    "temperament": "Friendly, Outgoing, Gentle, Intelligent",
+    "life_span": "10 - 12",
+    "weight": {"kg": "25 - 36"},
+    "image": "assets/dogs/labrador.jpg",
+    "food_recommendation": "Labradors thrive on a balanced diet with controlled portions to avoid obesity, particularly in warm climates."
+  },
+  {
+    "id": "golden_retriever",
+    "name": "Golden Retriever",
+    "origin": "United Kingdom",
+    "temperament": "Friendly, Intelligent, Devoted, Playful",
+    "life_span": "10 - 12",
+    "weight": {"kg": "25 - 34"},
+    "image": "assets/dogs/golden.jpg",
+    "food_recommendation": "Golden Retrievers require a diet rich in protein and omega-3 fatty acids to support their skin, coat, and joint health."
+  },
+  {
+    "id": "rottweiler",
+    "name": "Rottweiler",
+    "origin": "Germany",
+    "temperament": "Confident, Protective, Intelligent, Loyal",
+    "life_span": "8 - 10",
+    "weight": {"kg": "35 - 60"},
+    "image": "assets/dogs/rotweiler.jpg",
+    "food_recommendation": "Rottweilers need a high-protein, calcium-rich diet to maintain their muscle and bone strength, especially in hot climates."
+  },
+  {
+    "id": "bulldog",
+    "name": "Bulldog",
+    "origin": "United Kingdom",
+    "temperament": "Friendly, Docile, Willful, Gentle",
+    "life_span": "8 - 10",
+    "weight": {"kg": "18 - 25"},
+    "image": "assets/dogs/bull.jpg",
+    "food_recommendation": "Bulldogs require a low-fat, high-fiber diet to prevent obesity and skin issues, with extra care during hot weather."
+  },
+  {
+    "id": "pug",
+    "name": "Pug",
+    "origin": "China",
+    "temperament": "Charming, Mischievous, Playful, Affectionate",
+    "life_span": "12 - 15",
+    "weight": {"kg": "6 - 8"},
+    "image": "assets/dogs/pug.jpg",
+    "food_recommendation": "Pugs need a balanced diet with small portions to avoid weight gain, and ensure hydration during warmer months."
+  },
+  {
+    "id": "dalmatian",
+    "name": "Dalmatian",
+    "origin": "Croatia",
+    "temperament": "Energetic, Outgoing, Intelligent, Friendly",
+    "life_span": "10 - 13",
+    "weight": {"kg": "23 - 32"},
+    "image": "assets/dogs/dalmation.jpg",
+    "food_recommendation": "Dalmatians thrive on high-quality protein and low-purine diets to maintain their energy levels and avoid urinary issues."
+  },
+  {
+    "id": "doberman",
+    "name": "Doberman Pinscher",
+    "origin": "Germany",
+    "temperament": "Alert, Fearless, Loyal, Intelligent",
+    "life_span": "10 - 12",
+    "weight": {"kg": "30 - 40"},
+    "image": "assets/dogs/doberman.jpg",
+    "food_recommendation": "Dobermans need a protein-rich, nutrient-dense diet for their lean muscles and active lifestyle, especially in warm climates."
+  },
+  {
+    "id": "shih_tzu",
+    "name": "Shih Tzu",
+    "origin": "China",
+    "temperament": "Affectionate, Friendly, Playful, Gentle",
+    "life_span": "10 - 16",
+    "weight": {"kg": "4 - 7"},
+    "image": "assets/dogs/shih.jpg",
+    "food_recommendation": "Shih Tzus benefit from a diet rich in protein and omega-3 fatty acids for their coat and small size, especially in hot weather."
+  },
+  {
+    "id": "pakistani_bully",
+    "name": "Pakistani Bully",
+    "origin": "Pakistan",
+    "temperament": "Protective, Loyal, Strong, Intelligent",
+    "life_span": "8 - 12",
+    "weight": {"kg": "25 - 45"},
+    "image": "assets/dogs/bully.jpg",
+    "food_recommendation": "The Pakistani Bully requires a diet with high protein and moderate fat to maintain muscle strength, with proper hydration during hot climates."
+  },
+  {
+    "id": "husky",
+    "name": "Siberian Husky",
+    "origin": "Russia",
+    "temperament": "Friendly, Gentle, Outgoing, Intelligent",
+    "life_span": "12 - 15",
+    "weight": {"kg": "16 - 27"},
+    "image": "assets/dogs/husky.jpg",
+    "food_recommendation": "Huskies need a high-protein, low-fat diet with plenty of hydration, especially in Pakistan's warm climate to help them cope with the heat."
+  }
+]

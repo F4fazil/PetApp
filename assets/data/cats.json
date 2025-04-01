@@ -1,0 +1,72 @@
+[
+  {
+    "id": "persian",
+    "name": "Persian",
+    "origin": "Persia (Iran)",
+    "temperament": "Gentle, Quiet, Affectionate, Independent",
+    "life_span": "12 - 17",
+    "weight": {"kg": "3.18 - 6.35"},
+    "image": "assets/cats/persian.jpg",
+    "food_recommendation": "High-protein food with a mix of wet and dry options suitable for Persian cats, which thrive in moderate temperatures."
+  },
+  {
+    "id": "siamese",
+    "name": "Siamese",
+    "origin": "Thailand",
+    "temperament": "Social, Vocal, Intelligent, Affectionate",
+    "life_span": "15 - 20",
+    "weight": {"kg": "2.72 - 6.35"},
+    "image": "assets/cats/Siamese.jpg",
+    "food_recommendation": "Siamese cats require a balanced diet with high-quality protein and fiber, particularly in hot climates, to maintain hydration."
+  },
+  {
+    "id": "bengal",
+    "name": "Bengal",
+    "origin": "United States",
+    "temperament": "Active, Energetic, Confident, Curious, Friendly",
+    "life_span": "12 - 16",
+    "weight": {"kg": "3.63 - 7.26"},
+    "image": "assets/cats/bengal.jpg",
+    "food_recommendation": "Bengals need high-energy, protein-packed meals. They thrive on foods with essential fatty acids, especially for active lifestyles."
+  },
+  {
+    "id": "british",
+    "name": "British Shorthair",
+    "origin": "United Kingdom",
+    "temperament": "Affectionate, Calm, Easygoing, Loyal",
+    "life_span": "12 - 20",
+    "weight": {"kg": "4.08 - 8.16"},
+    "image": "assets/cats/british.jpg",
+    "food_recommendation": "A well-rounded diet with a mix of wet and dry food is suitable for British Shorthairs, especially in colder climates. In Pakistan's hot regions, ensure hydration and portion control."
+  },
+  {
+    "id": "maine",
+    "name": "Maine Coon",
+    "origin": "United States",
+    "temperament": "Affectionate, Intelligent, Loyal, Gentle",
+    "life_span": "12 - 15",
+    "weight": {"kg": "4.54 - 11.34"},
+    "image": "assets/cats/mainecoon.jpg",
+    "food_recommendation": "Maine Coons need high-protein, calorie-dense food due to their large size. They also require hydration to help cope with warmer climates."
+  },
+  {
+    "id": "birm",
+    "name": "Birman",
+    "origin": "Myanmar",
+    "temperament": "Affectionate, Gentle, Intelligent, Loyal",
+    "life_span": "12 - 16",
+    "weight": {"kg": "3.18 - 6.80"},
+    "image": "assets/cats/birman.jpg",
+    "food_recommendation": "Birman cats require food with a balanced nutrient profile, and in hot weather, it’s important to ensure proper hydration and reduce feeding during the peak heat of the day."
+  },
+  {
+    "id": "ragdoll",
+    "name": "Ragdoll",
+    "origin": "United States",
+    "temperament": "Affectionate, Intelligent, Gentle, Quiet",
+    "life_span": "12 - 17",
+    "weight": {"kg": "3.63 - 9.07"},
+    "image": "assets/cats/rigdoll.jpg",
+    "food_recommendation": "Ragdolls are large and affectionate cats, requiring a high-calorie diet with fatty acids, protein, and carbohydrates, ideal for their size and activity level."
+  }
+]

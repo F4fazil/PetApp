@@ -1,0 +1,88 @@
+name: petpalace
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  agora_rtc_engine: ^6.3.2
+  animated_bottom_navigation_bar: ^1.3.3
+  animated_snack_bar: ^0.4.0
+  async: ^2.10.0
+  awesome_dialog: ^3.2.1
+  cloud_firestore: ^5.0.1
+  cupertino_icons: ^1.0.8
+  curved_navigation_bar: ^1.0.6
+  firebase_auth: ^5.1.0
+  firebase_core: ^3.2.0
+  firebase_messaging: ^15.1.6
+  firebase_storage: ^12.1.1
+  flutter_local_notifications: ^18.0.1
+  flutter_polyline_points: null
+  flutter_searchbox: ^4.0.0
+  flutter_slider_drawer: ^2.1.3
+  flutter_stripe: ^11.3.0
+  flutter_svg: ^2.0.10+1
+  geocoding: null
+  geolocator: ^12.0.0
+  google_fonts: ^6.2.1
+  google_maps_flutter: ^2.5.0
+  googleapis_auth: ^1.6.0
+  http: ^1.1.0
+  image_picker: ^1.1.2
+  intl_phone_field: ^3.2.0
+  location: ^7.0.0
+  lottie: ^3.2.0
+  permission_handler: ^11.3.1
+  provider: ^6.1.2
+  random_string: ^2.3.1
+  rxdart: ^0.28.0
+  shared_preferences: ^2.3.5
+  shimmer: ^3.0.0
+  shimmer_loading: ^0.0.1
+  sliding_up_panel: ^2.0.0
+  timeago: ^3.7.0
+  url_launcher: ^6.3.1
+  flutter:
+    sdk: flutter
+  flex_color_scheme: ^8.2.0
+  flutter_bloc: ^9.1.0
+  equatable: null
+  firebase_app_check: ^0.3.2+4
+
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^4.0.0
+  flutter_native_splash: ^2.2.19
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_icon.png"
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: "assets/splash.jpg"
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/icons/
+    - assets/images/
+    - assets/cats/
+    - assets/dogs/
+    - assets/data/cats.json
+    - assets/data/dogs.json
+    - assets/lottie/congrats.json
+    - assets/lottie/upload.json
+    - assets/lottie/loading.json
+    - 'assets/icons/my_chip.png'
+
