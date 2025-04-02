@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petpalace/screens/feature_screens/homeScreen.dart';
 
 import '../constant/constant.dart';
 import '../screens/homepage.dart';
@@ -26,7 +27,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final nameTextController = TextEditingController();
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
-  final confirmPasswordTextController = TextEditingController();
 
   void _saveTokenToDatabase(String? token) {
     final user = FirebaseAuth.instance.currentUser;
@@ -40,6 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    Color btnColor = Theme.of(context).colorScheme.primary;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -123,23 +124,11 @@ class _RegisterPageState extends State<RegisterPage> {
                             child: MyTextField(
                               obscureText: true,
                               controller: passwordTextController,
-                              icon: Icon(Icons.mail_sharp, color: btnColor),
+                              icon: Icon(Icons.password, color: btnColor),
                               hintText: 'Password',
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 10,
-                              right: 10,
-                              top: 20,
-                            ),
-                            child: MyTextField(
-                              obscureText: true,
-                              controller: confirmPasswordTextController,
-                              icon: Icon(Icons.password, color: btnColor),
-                              hintText: 'Confirm Password',
-                            ),
-                          ),
+
                           const SizedBox(height: 50),
                         ],
                       ),
@@ -157,7 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const HomeScreen(),
+                                      builder: (context) => const MainScreen(),
                                     ),
                                   );
                                 } else if (state is AuthError) {
@@ -184,7 +173,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                         nameTextController.text,
                                         emailTextController.text,
                                         passwordTextController.text,
-                                        confirmPasswordTextController.text,
                                       ),
                                     );
                                   },

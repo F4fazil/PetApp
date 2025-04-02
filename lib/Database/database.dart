@@ -36,17 +36,19 @@ class DataBaseStorage {
 
     var userSnapshot =
         await FirebaseFirestore.instance.collection("notifications").get();
-    var filteredUsers =
-        userSnapshot.docs.where((doc) => doc.id != currentUserEmail);
+    var filteredUsers = userSnapshot.docs.where(
+      (doc) => doc.id != currentUserEmail,
+    );
 
     List<Map<String, dynamic>> combinedData = [];
 
     for (var userDoc in filteredUsers) {
-      var propertySnapshot = await userDoc.reference
-          .collection("posts")
-          .doc("notifications")
-          .collection("_")
-          .get();
+      var propertySnapshot =
+          await userDoc.reference
+              .collection("posts")
+              .doc("notifications")
+              .collection("_")
+              .get();
 
       for (var propertyDoc in propertySnapshot.docs) {
         combinedData.add(propertyDoc.data());
@@ -59,17 +61,16 @@ class DataBaseStorage {
   Future<void> add_data_to_Cat(Map<String, dynamic> profileData) async {
     profileData['postId'] = DateTime.now().millisecondsSinceEpoch.toString();
     try {
+      // ignore: avoid_single_cascade_in_expression_statements
       FirebaseFirestore.instance
           .collection("users")
           .doc(user?.uid)
           .collection("petDetails")
           .doc("Cat")
         ..collection("_").doc(profileData['postId']).set(profileData);
-      print(user.toString());
+
       print("Data added to Firestore successfully! ");
-    } catch (e) {
-      print('Error adding data to Firestore: $e');
-    }
+    } catch (e) {}
   }
 
   Future<void> add_data_to_Dog(Map<String, dynamic> profileData) async {
@@ -141,8 +142,9 @@ class DataBaseStorage {
     // Fetch all users except the current user
     var userSnapshot =
         await FirebaseFirestore.instance.collection("users").get();
-    var filteredUsers =
-        userSnapshot.docs.where((doc) => doc.id != currentUserEmail);
+    var filteredUsers = userSnapshot.docs.where(
+      (doc) => doc.id != currentUserEmail,
+    );
 
     List<Map<String, dynamic>> combinedData = [];
 
@@ -162,13 +164,14 @@ class DataBaseStorage {
   //fav
   Future<List<Map<String, dynamic>>> getFav() async {
     try {
-      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-          .collection("users")
-          .doc(user?.uid)
-          .collection("propertyDetails")
-          .doc("favourite")
-          .collection("_")
-          .get();
+      QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance
+              .collection("users")
+              .doc(user?.uid)
+              .collection("propertyDetails")
+              .doc("favourite")
+              .collection("_")
+              .get();
 
       List<Map<String, dynamic>> dataList = [];
 
@@ -200,17 +203,19 @@ class DataBaseStorage {
 
     var userSnapshot =
         await FirebaseFirestore.instance.collection("users").get();
-    var filteredUsers =
-        userSnapshot.docs.where((doc) => doc.id != currentUserEmail);
+    var filteredUsers = userSnapshot.docs.where(
+      (doc) => doc.id != currentUserEmail,
+    );
 
     List<Map<String, dynamic>> combinedData = [];
 
     for (var userDoc in filteredUsers) {
-      var propertySnapshot = await userDoc.reference
-          .collection("petDetails")
-          .doc("Cat")
-          .collection("_")
-          .get();
+      var propertySnapshot =
+          await userDoc.reference
+              .collection("petDetails")
+              .doc("Cat")
+              .collection("_")
+              .get();
 
       for (var propertyDoc in propertySnapshot.docs) {
         combinedData.add(propertyDoc.data());
@@ -231,18 +236,20 @@ class DataBaseStorage {
     // Fetch all users except the current user
     var userSnapshot =
         await FirebaseFirestore.instance.collection("users").get();
-    var filteredUsers =
-        userSnapshot.docs.where((doc) => doc.id != currentUserEmail);
+    var filteredUsers = userSnapshot.docs.where(
+      (doc) => doc.id != currentUserEmail,
+    );
 
     List<Map<String, dynamic>> combinedData = [];
 
     // For each filtered user, fetch their home property details
     for (var userDoc in filteredUsers) {
-      var propertySnapshot = await userDoc.reference
-          .collection("petDetails")
-          .doc("Dog")
-          .collection("_")
-          .get();
+      var propertySnapshot =
+          await userDoc.reference
+              .collection("petDetails")
+              .doc("Dog")
+              .collection("_")
+              .get();
 
       for (var propertyDoc in propertySnapshot.docs) {
         combinedData.add(propertyDoc.data());
@@ -263,8 +270,9 @@ class DataBaseStorage {
     // Fetch all users except the current user
     var userSnapshot =
         await FirebaseFirestore.instance.collection("users").get();
-    var filteredUsers =
-        userSnapshot.docs.where((doc) => doc.id != currentUserEmail);
+    var filteredUsers = userSnapshot.docs.where(
+      (doc) => doc.id != currentUserEmail,
+    );
 
     List<Map<String, dynamic>> combinedData = [];
 
@@ -292,8 +300,9 @@ class DataBaseStorage {
     // Fetch all users except the current user
     var userSnapshot =
         await FirebaseFirestore.instance.collection("users").get();
-    var filteredUsers =
-        userSnapshot.docs.where((doc) => doc.id != currentUserEmail);
+    var filteredUsers = userSnapshot.docs.where(
+      (doc) => doc.id != currentUserEmail,
+    );
 
     List<Map<String, dynamic>> combinedData = [];
 
@@ -311,7 +320,8 @@ class DataBaseStorage {
 
   // Helper function to merge streams
   Stream<List<Map<String, dynamic>>> combineStreams(
-      List<Stream<List<Map<String, dynamic>>>> streams) {
+    List<Stream<List<Map<String, dynamic>>>> streams,
+  ) {
     return StreamZip(streams).map((listOfLists) {
       List<Map<String, dynamic>> combinedData = [];
       for (var list in listOfLists) {
@@ -331,17 +341,19 @@ class DataBaseStorage {
 
     var userSnapshot =
         await FirebaseFirestore.instance.collection("users").get();
-    var filteredUsers =
-        userSnapshot.docs.where((doc) => doc.id == currentUserEmail);
+    var filteredUsers = userSnapshot.docs.where(
+      (doc) => doc.id == currentUserEmail,
+    );
 
     List<Map<String, dynamic>> combinedData = [];
 
     for (var userDoc in filteredUsers) {
-      var propertySnapshot = await userDoc.reference
-          .collection("petDetails")
-          .doc("Cat")
-          .collection("_")
-          .get();
+      var propertySnapshot =
+          await userDoc.reference
+              .collection("petDetails")
+              .doc("Cat")
+              .collection("_")
+              .get();
 
       for (var propertyDoc in propertySnapshot.docs) {
         combinedData.add(propertyDoc.data());
@@ -360,13 +372,14 @@ class DataBaseStorage {
     String currentUserUid = user.uid;
 
     // Fetch the dog's details for the current user
-    var dogSnapshot = await FirebaseFirestore.instance
-        .collection("users")
-        .doc(currentUserUid)
-        .collection("petDetails")
-        .doc("Dog")
-        .collection("_")
-        .get();
+    var dogSnapshot =
+        await FirebaseFirestore.instance
+            .collection("users")
+            .doc(currentUserUid)
+            .collection("petDetails")
+            .doc("Dog")
+            .collection("_")
+            .get();
 
     List<Map<String, dynamic>> combinedData = [];
 
@@ -389,7 +402,7 @@ class DataBaseStorage {
     return combineStreams(streams);
   }
 
-// Function to get all property data
+  // Function to get all property data
   Stream<List<Map<String, dynamic>>> retrieveAllData() {
     // Define the list of streams
     List<Stream<List<Map<String, dynamic>>>> streams = [
@@ -426,23 +439,24 @@ class DataBaseStorage {
         .collection('meetings')
         .doc(meetingRoomId)
         .set({
-      "vetName": vetName,
-      "vetUid": vetUid,
-      "userName": userName,
-      "userUid": userUid,
-      "meetingDateTime": meetingDateTime,
-      "status":
-          "pending", // The vet can update this to "accepted" or "declined"
-    });
+          "vetName": vetName,
+          "vetUid": vetUid,
+          "userName": userName,
+          "userUid": userUid,
+          "meetingDateTime": meetingDateTime,
+          "status":
+              "pending", // The vet can update this to "accepted" or "declined"
+        });
   }
 
   Future<List<Map<String, dynamic>>> fetchUserMeetings() async {
     String currentUserUid = FirebaseAuth.instance.currentUser!.uid;
 
-    QuerySnapshot snapshot = await FirebaseFirestore.instance
-        .collection('meetings')
-        .where('userUid', isEqualTo: currentUserUid)
-        .get();
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance
+            .collection('meetings')
+            .where('userUid', isEqualTo: currentUserUid)
+            .get();
 
     List<Map<String, dynamic>> meetings =
         snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
@@ -459,10 +473,11 @@ class DataBaseStorage {
     String currentUserUid = FirebaseAuth.instance.currentUser!.uid;
 
     try {
-      QuerySnapshot meetingsSnapshot = await FirebaseFirestore.instance
-          .collection('meetings')
-          .where('vetUid', isEqualTo: currentUserUid)
-          .get();
+      QuerySnapshot meetingsSnapshot =
+          await FirebaseFirestore.instance
+              .collection('meetings')
+              .where('vetUid', isEqualTo: currentUserUid)
+              .get();
 
       List<Map<String, dynamic>> meetings = [];
       for (var doc in meetingsSnapshot.docs) {
@@ -496,12 +511,13 @@ class DataBaseStorage {
           await FirebaseFirestore.instance.collection("users").get();
 
       // Filter out the current user's data
-      List<Map<String, dynamic>> allUsersData = querySnapshot.docs
-          .where((doc) =>
-              doc.id !=
-              user?.email) // Assuming email is used as a unique identifier
-          .map((doc) => doc.data())
-          .toList();
+      List<Map<String, dynamic>> allUsersData =
+          querySnapshot.docs
+              .where(
+                (doc) => doc.id != user?.email,
+              ) // Assuming email is used as a unique identifier
+              .map((doc) => doc.data())
+              .toList();
 
       return allUsersData;
     } catch (e) {

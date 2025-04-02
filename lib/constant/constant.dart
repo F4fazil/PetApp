@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Color bottom_naivigation_color = Colors.grey.shade200;
-Color textfield_border_color = Colors.white;
-Color btnColor = const Color.fromARGB(255, 100, 208, 197);
 Color textfieldicon = const Color.fromARGB(255, 41, 116, 112);
 Color app_bc = const Color.fromRGBO(100, 208, 197, 1);
 

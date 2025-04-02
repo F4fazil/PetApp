@@ -47,11 +47,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCNCYk8ek3PRKUF9nkPjS7zsN0GyvR6YNc',
-    appId: '1:530056062653:android:b4cfb38f9b2459528539d4',
-    messagingSenderId: '530056062653',
-    projectId: 'petpalace-b5aa9',
-    storageBucket: 'petpalace-b5aa9.firebasestorage.app',
+    apiKey: 'AIzaSyBhXGbBPld9rzqbfCN-klv-5h-rB_y06AM',
+    appId: '1:85631613025:android:ad4a9d594a220cace81220',
+    messagingSenderId: '85631613025',
+    projectId: 'propertypall',
+    storageBucket: 'propertypall.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(

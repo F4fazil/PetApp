@@ -56,8 +56,8 @@ class Authbloc extends Bloc<Authevent, Authstate> {
   }
 
   void _signUp(SignupIsRequested event, Emitter<Authstate> emit) async {
-    if (event.password != event.confirmpassword) {
-      emit(const AuthError("Passwords do not match"));
+    if (event.password.length < 6) {
+      emit(const AuthError("Weak Password"));
       return;
     }
 

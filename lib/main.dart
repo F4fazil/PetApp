@@ -15,6 +15,7 @@ import 'authentication/auth.dart';
 import 'authentication/authBloc/authBloc.dart';
 import 'firebase_options.dart';
 import 'constant/constant.dart';
+import 'screens/feature_screens/homeScreen.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();

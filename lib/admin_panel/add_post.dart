@@ -32,10 +32,7 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
   final state = TextEditingController();
   final ImagePicker _picker = ImagePicker();
   final DateTime _dateTime = DateTime.now();
-  final List<String> _type = [
-    "Cat",
-    "Dog",
-  ];
+  final List<String> _type = ["Cat", "Dog"];
   final List<File> _imageFiles = [];
   AnimationController? _controller;
   String? address;
@@ -64,10 +61,11 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
     }
 
     try {
-      var userDoc = await FirebaseFirestore.instance
-          .collection("users")
-          .doc(user.uid)
-          .get();
+      var userDoc =
+          await FirebaseFirestore.instance
+              .collection("users")
+              .doc(user.uid)
+              .get();
       setState(() {
         name = userDoc.data()?["name"];
       });
@@ -106,60 +104,59 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
             children: [
               const SizedBox(height: 20),
               Center(
-                child: Stack(children: [
-                  GestureDetector(
-                    onTap: () {
-                      if (_controller != null) {
-                        _controller!
-                            .forward()
-                            .then((value) => _controller!.reverse());
-                      }
-                      _pickImages();
-                    },
-                    child: Center(
-                      child: ScaleTransition(
-                        scale: _controller != null
-                            ? Tween(begin: 1.0, end: 1.2).animate(
-                                CurvedAnimation(
-                                  parent: _controller!,
-                                  curve: Curves.easeInOut,
+                child: Stack(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        if (_controller != null) {
+                          _controller!.forward().then(
+                            (value) => _controller!.reverse(),
+                          );
+                        }
+                        _pickImages();
+                      },
+                      child: Center(
+                        child: ScaleTransition(
+                          scale:
+                              _controller != null
+                                  ? Tween(begin: 1.0, end: 1.2).animate(
+                                    CurvedAnimation(
+                                      parent: _controller!,
+                                      curve: Curves.easeInOut,
+                                    ),
+                                  )
+                                  : const AlwaysStoppedAnimation(1.0),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height / 8,
+                            width: MediaQuery.of(context).size.width / 4,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3),
                                 ),
-                              )
-                            : const AlwaysStoppedAnimation(1.0),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height / 8,
-                          width: MediaQuery.of(context).size.width / 4,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(0, 3),
-                              ),
-                            ],
+                              ],
+                            ),
+                            child: Icon(
+                              Icons.add_a_photo_outlined,
+                              size: 50,
+                              color: textfieldicon,
+                            ),
                           ),
-                          child: Icon(Icons.add_a_photo_outlined,
-                              size: 50, color: textfieldicon),
                         ),
                       ),
                     ),
-                  ),
-                ]),
+                  ],
+                ),
               ),
               const SizedBox(height: 15),
               _buildImageGrid(),
               const SizedBox(height: 15),
-              const Row(
-                children: [
-                  SizedBox(
-                    width: 23,
-                  ),
-                  Text("Pet Type"),
-                ],
-              ),
+              const Row(children: [SizedBox(width: 23), Text("Pet Type")]),
               Row(
                 children: [
                   SizedBox(
@@ -181,22 +178,15 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
                   Text("Pet Breed"),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               Row(
                 children: [
-                  const SizedBox(
-                    width: 12,
-                  ),
+                  const SizedBox(width: 12),
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2.1,
                     child: MyTextField(
                       controller: price,
-                      icon: Icon(
-                        Icons.money,
-                        color: textfieldicon,
-                      ),
+                      icon: Icon(Icons.money, color: textfieldicon),
                       hintText: '',
                     ),
                   ),
@@ -204,10 +194,7 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
                     width: MediaQuery.of(context).size.width / 2.1,
                     child: MyTextField(
                       controller: pet_breed,
-                      icon: Icon(
-                        Icons.pets,
-                        color: textfieldicon,
-                      ),
+                      icon: Icon(Icons.pets, color: textfieldicon),
                       hintText: '',
                     ),
                   ),
@@ -216,28 +203,31 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
               // description
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 8, bottom: 8, left: 16, right: 16),
+                  top: 8,
+                  bottom: 8,
+                  left: 16,
+                  right: 16,
+                ),
                 child: TextField(
                   controller: desc,
                   maxLines: null,
                   minLines: 5,
                   decoration: InputDecoration(
-                      iconColor: textfield_border_color,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: app_bc, width: 0.8),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: app_bc, width: 1.2),
-                      ),
-                      fillColor: Colors.white.withOpacity(0.3),
-                      filled: true,
-                      hintText: "Help Us Get to Know Your Pet."),
+                    iconColor: Colors.lightBlue,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(color: app_bc, width: 0.8),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: app_bc, width: 1.2),
+                    ),
+                    fillColor: Colors.white.withOpacity(0.3),
+                    filled: true,
+                    hintText: "Help Us Get to Know Your Pet.",
+                  ),
                 ),
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               // adress button
               Center(
                 child: ElevatedButton.icon(
@@ -253,22 +243,27 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 12),
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
                   ),
                 ),
               ),
               if (address != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 16.0),
-                  child: Wrap(children: [
-                    Text(
-                      'Address: $address',
-                      style: const TextStyle(
+                  child: Wrap(
+                    children: [
+                      Text(
+                        'Address: $address',
+                        style: const TextStyle(
                           fontSize: 14,
                           color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ]),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               const SizedBox(height: 10),
               Padding(
@@ -277,9 +272,7 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
                   onPressed: () async {
                     if (user != null) {
                       uploadImages(user!.uid.toString());
-                      OsmDailogue(context).showSnackBar(
-                        "Success Posted",
-                      );
+                      OsmDailogue(context).showSnackBar("Success Posted");
                       print("upload from here.");
                     } else {
                       print("User is not logged in.");
@@ -357,36 +350,36 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
   Widget _buildImageGrid() {
     return _imageFiles.isNotEmpty
         ? GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 4,
-              mainAxisSpacing: 4,
-            ),
-            itemCount: _imageFiles.length,
-            itemBuilder: (context, index) {
-              return AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: GestureDetector(
-                  onLongPress: () {
-                    setState(() {
-                      _imageFiles.removeAt(index);
-                    });
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: FileImage(_imageFiles[index]),
-                        fit: BoxFit.cover,
-                      ),
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 4,
+          ),
+          itemCount: _imageFiles.length,
+          itemBuilder: (context, index) {
+            return AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: GestureDetector(
+                onLongPress: () {
+                  setState(() {
+                    _imageFiles.removeAt(index);
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: FileImage(_imageFiles[index]),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
-              );
-            },
-          )
+              ),
+            );
+          },
+        )
         : Container();
   }
 
@@ -402,8 +395,10 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
     List<String> downloadUrls = [];
     for (File image in _imageFiles) {
       var id = randomAlphaNumeric(10);
-      Reference firebaseStorageRef =
-          FirebaseStorage.instance.ref().child("pic").child(id);
+      Reference firebaseStorageRef = FirebaseStorage.instance
+          .ref()
+          .child("pic")
+          .child(id);
       UploadTask upload = firebaseStorageRef.putFile(image);
       var downloadurl = await (await upload).ref.getDownloadURL();
       downloadUrls.add(downloadurl);
@@ -421,7 +416,7 @@ class _AddPostState extends State<AddPost> with SingleTickerProviderStateMixin {
         "pet_breed": pet_breed.text,
         "uid": userid,
         "name": name,
-        "TimeStamp": _dateTime
+        "TimeStamp": _dateTime,
       };
 
       if (pet_type.text == "Cat") {

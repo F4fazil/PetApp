@@ -51,6 +51,7 @@ dependencies:
   flutter_bloc: ^9.1.0
   equatable: null
   firebase_app_check: ^0.3.2+4
+  flutter_animate: ^4.5.2
 
 
 dev_dependencies:

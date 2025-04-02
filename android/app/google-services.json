@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "530056062653",
-    "project_id": "petpalace-b5aa9",
-    "storage_bucket": "petpalace-b5aa9.firebasestorage.app"
+    "project_number": "85631613025",
+    "project_id": "propertypall",
+    "storage_bucket": "propertypall.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:530056062653:android:b4cfb38f9b2459528539d4",
+        "mobilesdk_app_id": "1:85631613025:android:ad4a9d594a220cace81220",
         "android_client_info": {
           "package_name": "com.example.petpalace"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCNCYk8ek3PRKUF9nkPjS7zsN0GyvR6YNc"
+          "current_key": "AIzaSyBhXGbBPld9rzqbfCN-klv-5h-rB_y06AM"
         }
       ],
       "services": {
