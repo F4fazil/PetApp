@@ -23,6 +23,7 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
   final ChatService _chatService = ChatService();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final String currentUserId = FirebaseAuth.instance.currentUser!.uid;
+
   String? userName;
   String? profilepic;
 
@@ -74,27 +75,33 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Color bc = Theme.of(context).colorScheme.onPrimary;
+    final containerColors = Theme.of(context).colorScheme.onPrimary;
+    Color ic = Theme.of(context).colorScheme.primary;
+    final primarycontiner = Theme.of(context).colorScheme.onPrimaryContainer;
 
     return Scaffold(
-      backgroundColor: bc,
+      backgroundColor: containerColors,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 40),
-          buildUpperHeaderUi(),
+          buildUpperHeaderUi(containerColors, ic, primarycontiner),
           Padding(
             padding: const EdgeInsets.only(left: 18.0),
             child: Text("Feature Vets", style: style),
           ),
-          buildUi(),
+          buildUi(containerColors, ic, primarycontiner),
         ],
       ),
     );
   }
 
-  Widget buildUpperHeaderUi() {
+  Widget buildUpperHeaderUi(
+    Color containerColors,
+    Color ic,
+    Color primarycontiner,
+  ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -102,17 +109,17 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
           width: MediaQuery.of(context).size.width * 0.6,
           height: 80,
           padding: const EdgeInsets.all(15),
-
+          decoration: BoxDecoration(color: containerColors),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Hello ${userName ?? 'User'}👋',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: primarycontiner,
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -135,10 +142,10 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  blurRadius: 10,
-                  spreadRadius: 1,
-                  offset: const Offset(0, 3),
+                  color: containerColors,
+                  spreadRadius: 2,
+                  blurRadius: 8,
+                  offset: const Offset(0, 4), // Shadow effect
                 ),
               ],
               image:
@@ -159,10 +166,7 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
     );
   }
 
-  Widget buildUi() {
-    final containerColors = Theme.of(context).colorScheme.onPrimary;
-    Color ic = Theme.of(context).colorScheme.primary;
-
+  Widget buildUi(Color containerColors, Color ic, Color primarycontiner) {
     return Expanded(
       child: StreamBuilder<List<Map<String, dynamic>>>(
         stream: _dataBaseStorage.retrieveDataFromVet(),
@@ -183,12 +187,13 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
 
               return Container(
                     padding: const EdgeInsets.all(16),
+                    margin: EdgeInsets.all(3),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: containerColors,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black,
                           blurRadius: 10,
                           offset: const Offset(0, 4),
                         ),
@@ -234,6 +239,7 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                                         "0",
                                         style: TextStyle(
                                           fontSize: 16,
+                                          color: primarycontiner,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -243,17 +249,17 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                                 const SizedBox(height: 16),
                                 Text(
                                   vet['vet_name'] ?? 'Vet',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 22,
-                                    color: Colors.white,
+                                    color: primarycontiner,
                                   ),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
                                   'Specialization: ${vet['specialization'] ?? 'Vet Specialist'}',
                                   style: TextStyle(
-                                    color: Colors.white.withOpacity(0.9),
+                                    color: primarycontiner,
                                     fontSize: 16,
                                   ),
                                 ),
@@ -261,7 +267,7 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                                 Text(
                                   '${vet['experience']} years of Experience',
                                   style: TextStyle(
-                                    color: Colors.white.withOpacity(0.9),
+                                    color: primarycontiner,
                                     fontSize: 14,
                                   ),
                                 ),
@@ -275,7 +281,7 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(40),
                                   border: Border.all(
-                                    color: Colors.white.withOpacity(0.3),
+                                    color: primarycontiner,
                                     width: 2,
                                   ),
                                   image: DecorationImage(
@@ -290,15 +296,15 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                         const SizedBox(height: 16),
                         Row(
                           children: [
-                            Icon(Icons.pets, color: containerColors, size: 24),
+                            Icon(Icons.pets, color: ic, size: 24),
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
                                 vet['services_offered'] ??
                                     'Services not specified',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.white,
+                                  color: primarycontiner,
                                 ),
                                 softWrap: true,
                                 overflow: TextOverflow.ellipsis,
@@ -309,14 +315,14 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                         const SizedBox(height: 12),
                         Row(
                           children: [
-                            Icon(Icons.phone, color: containerColors, size: 24),
+                            Icon(Icons.phone, color: ic, size: 24),
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
                                 vet['contact'] ?? 'Contact not available',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.white,
+                                  color: primarycontiner,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -326,19 +332,15 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                         const SizedBox(height: 12),
                         Row(
                           children: [
-                            Icon(
-                              Icons.location_on,
-                              color: containerColors,
-                              size: 24,
-                            ),
+                            Icon(Icons.location_on, color: ic, size: 24),
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
                                 vet['clinic_address'] ??
                                     'Address not available',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.white,
+                                  color: primarycontiner,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -363,7 +365,7 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
-                                backgroundColor: Colors.white,
+                                backgroundColor: ic,
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 24,
                                   vertical: 12,
@@ -391,7 +393,7 @@ class _ConsultVetScreenState extends State<ConsultVetScreen> {
                                   );
                                 }
                               },
-                              backgroundColor: Colors.white,
+                              backgroundColor: ic,
                               elevation: 8.0,
                               child: SvgPicture.asset(
                                 'assets/icons/chat.svg',
